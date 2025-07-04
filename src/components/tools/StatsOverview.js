@@ -17,10 +17,10 @@ export default function StatsOverview({ data, hideDolar, isLoading }) {
     )
   }
 
-  const totalARS = data.reduce((sum, item) => sum + item.TotalARS, 0)
+  const TotalVentaHoy = data.reduce((sum, item) => sum + item.TotalVentaHoy, 0)
   // const totalUSD = data.reduce((sum, item) => sum + item.TotalUSD, 0)
   const activeBranches = data.length
-  // const negativeCount = data.filter((item) => item.TotalARS < 0 || item.TotalUSD < 0).length
+  // const negativeCount = data.filter((item) => item.TotalVentaHoy < 0 || item.TotalUSD < 0).length
 
   const formatCurrency = (amount, currency) => {
     return new Intl.NumberFormat("es-AR", {
@@ -33,9 +33,9 @@ export default function StatsOverview({ data, hideDolar, isLoading }) {
   const stats = [
     {
       title: "Total ARS",
-      value: formatCurrency(totalARS, "ARS"),
+      value: formatCurrency(TotalVentaHoy, "ARS"),
       icon: "💰",
-      trend: totalARS >= 0 ? "positive" : "negative",
+      trend: TotalVentaHoy >= 0 ? "positive" : "negative",
     },
     // {
     //   title: "Total USD",
@@ -59,7 +59,7 @@ export default function StatsOverview({ data, hideDolar, isLoading }) {
 
   // negativeCount representa la cantidad de sucursales (o ítems del array data)
   // que tienen un saldo negativo, 
-  // ya sea en pesos (TotalARS) o en dólares (TotalUSD).
+  // ya sea en pesos (TotalVentaHoy) o en dólares (TotalUSD).
 
   return (
     <div className="stats-overview">

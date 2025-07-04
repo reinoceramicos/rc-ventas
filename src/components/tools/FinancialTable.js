@@ -68,10 +68,10 @@ export default function FinancialTable({ data }) {
                   <div className="sort-icon">{getSortIcon("SucursalCaja")}</div>
                 </div>
               </th>
-              <th onClick={() => handleSort("TotalARS")}>
+              <th onClick={() => handleSort("TotalVentaHoy")}>
                 <div className="th-content">
                   <span>Total ARS</span>
-                  <div className="sort-icon">{getSortIcon("TotalARS")}</div>
+                  <div className="sort-icon">{getSortIcon("TotalVentaHoy")}</div>
                 </div>
               </th>
               {/* <th onClick={() => handleSort("TotalUSD")}>
@@ -84,7 +84,7 @@ export default function FinancialTable({ data }) {
           </thead>
           <tbody>
             {sortedData.map((row, index) => {
-              const arsData = formatCurrency(row.TotalARS, "ARS")
+              const arsData = formatCurrency(row.TotalVentaHoy, "ARS")
               // const usdData = formatCurrency(row.TotalUSD, "USD")
 
               return (
