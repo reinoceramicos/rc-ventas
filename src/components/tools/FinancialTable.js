@@ -62,10 +62,10 @@ export default function FinancialTable({ data }) {
         <table className="financial-table">
           <thead>
             <tr>
-              <th onClick={() => handleSort("SucursalCaja")}>
+              <th onClick={() => handleSort("Sucursal")}>
                 <div className="th-content">
                   <span>Sucursal / Caja</span>
-                  <div className="sort-icon">{getSortIcon("SucursalCaja")}</div>
+                  <div className="sort-icon">{getSortIcon("Sucursal")}</div>
                 </div>
               </th>
               <th onClick={() => handleSort("TotalVentaHoy")}>
@@ -102,7 +102,7 @@ export default function FinancialTable({ data }) {
                           />
                         </svg>
                       </div>
-                      <span>{row.SucursalCaja}</span>
+                      <span>{row.Sucursal}</span>
                     </div>
                   </td>
                   <td className={`amount-cell ${arsData.isNegative ? "negative" : "positive"}`}>
