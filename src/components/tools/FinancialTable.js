@@ -107,12 +107,12 @@ export default function FinancialTable({ data }) {
                   </td>
                   <td className={`amount-cell ${arsData.isNegative ? "negative" : "positive"}`}>
                     <div className="amount-wrapper">
-                      <span className="currency-symbol">$</span>
                       <span className="amount">
+                        <span className="currency-symbol">$</span>
                         {arsData.isNegative ? "-" : ""}
                         {arsData.formatted.replace("ARS", "").replace("$", "").replace("-", "").trim()}
+                        <span className="currency-code">ARS</span>
                       </span>
-                      <span className="currency-code">ARS</span>
                     </div>
                   </td>
                   {/* <td className={`amount-cell ${usdData.isNegative ? "negative" : "positive"}`}>

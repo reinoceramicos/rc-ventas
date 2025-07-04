@@ -43,12 +43,12 @@ export default function StatsOverview({ data, hideDolar, isLoading }) {
     //   icon: "💵",
     //   trend: totalUSD >= 0 ? "positive" : "negative",
     // },
-    {
-      title: "Sucursales Activas",
-      value: activeBranches.toString(),
-      icon: "🏰",
-      trend: "neutral",
-    },
+    //{
+    //  title: "Sucursales Activas",
+    //  value: activeBranches.toString(),
+    //  icon: "🏰",
+    //  trend: "neutral",
+    //},
     // {
     //   title: "Alertas",
     //   value: negativeCount.toString(),
