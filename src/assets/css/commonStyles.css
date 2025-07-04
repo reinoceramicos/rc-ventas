@@ -1,0 +1,173 @@
+
+.con-sombra{ box-shadow: 0 0 10px -5px var(--gray-9) }
+
+/* ---------------------------------- */
+
+.text-center{ text-align: center; }
+.text-bold{ font-weight: bold; }
+.text-underline{ text-decoration: underline; }
+
+/* ---------------------------------- */
+
+.text-primary{ color: var(--PRIMARY_COLOR)}
+.text-primary-white{ color: var(--TEXT_WHITE)}
+.text-success{color: var(--SUCCESS);}
+.text-danger{color: var(--DANGER);}
+
+/* ---------------------------------- */
+
+.text-size-18{
+  font-size: 18px;
+}
+
+/* ---------------------------------- */
+
+.card{
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--gray-5);
+  background-color: var(--gray-1);
+  border-radius: 16px;
+
+}
+
+.card-head{
+  padding: 12px;
+  border-bottom: 1px solid var(--gray-4);
+}
+
+.card-body{
+  padding: 8px;
+}
+
+.separador{
+  border-color: var(--PRIMARY_COLOR);
+  opacity: .3;
+  margin: 8px;
+}
+
+/* .separadorVertical{
+  width: 2,
+  height: 16,
+  margin: 2,
+  backgroundColor: 'white'
+} */
+
+
+/* ---------------------------------- */
+.bg-none{ background-color: transparent }
+.bg-primary{ background-color: var(--PRIMARY_COLOR); }
+.bg-dark{ background-color: var(--DARK_B); }
+.bg-white{ background-color: var(--WHITE); }
+
+/* ---------------------------------- */
+.border-no{
+  border: none;
+}
+/* ---------------------------------- */
+
+.blured-dark-b{
+  backdrop-filter: blur(12px);
+}
+
+.blured-dark-b::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--DARK_B);
+  opacity: .65;
+
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.btn-3D{
+  background-image: linear-gradient(1deg, #e30039, #DA0037 99%);
+  z-index: 1;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.Limited{
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ---------------------------------- */
+
+.inputBoxSoft{
+  background-color: var(--gray-3);
+  border: 1px solid var(--gray-3);
+  border-radius: 16px;
+  margin-top: 16px;
+
+}
+
+.inputSoft{
+
+  padding: 16px !important;
+  background-color: var(--gray-1);
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  padding-right: 60px;
+  outline: none;
+  color: var(--TEXT_PRIMARY_COLOR) !important;
+  
+}
+
+.inputSoft::placeholder{
+  opacity: .8;
+}
+
+.controlInput{
+  background-color: var(--gray-4);
+  border:2px solid var(--gray-4);
+  border-radius: 16px;
+  margin-top: 16px;
+  border-width:1px;
+  padding: 2px;
+}
+
+.divider{
+  border:1px solid var(--gray-5);
+  margin: 4px;
+}
+
+/* ---------------------------------- */
+
+a,
+button,
+button *{
+  cursor: pointer;
+}
+
+/* ---------------------------------- */
+
+.alert{
+  padding: 16px;
+  border-radius: 16px;
+  border-width: 1px;
+  border-style: solid;  
+
+  background-color: color-mix(in srgb, var(--gray-8), white 90%);
+  border-color: color-mix(in srgb, var(--gray-8), white 50%);
+
+}
+
+.alert-success{
+  background-color: color-mix(in srgb, var(--SUCCESS), white 90%);
+  border-color: color-mix(in srgb, var(--SUCCESS), white 70%);
+}
+
+.alert-danger{
+  background-color: color-mix(in srgb, var(--DANGER), white 95%);
+  border-color: color-mix(in srgb, var(--DANGER), white 80%);
+}

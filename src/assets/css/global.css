@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+
+  --PRIMARY_COLOR: #0D1BD4;
+  --TEXT_PRIMARY_COLOR: #191919;
+  --TEXT_SECONDARY_COLOR: #252525;
+  --TEXT_TERCER_COLOR: #414141;
+
+  --TEXT_WHITE: #FFFFFF;
+  --WHITE: #FFFFFF;
+  --SUCCESS: #00804f;
+  --DANGER: #dc143c;
+
+  --RADIUS: 8px;
+
+  --gray-1: #fcfcfd;
+  --gray-2: #f9f9fb;
+  --gray-3: #eff0f3;
+  --gray-4: #e7e8ec;
+  --gray-5: #e0e1e6;
+  --gray-6: #d8d9e0;
+  --gray-7: #cdced7;
+  --gray-8: #b9bbc6;
+  --gray-9: #8b8d98;
+  --gray-10: #80828d;
+  --gray-11: #62636c;
+  --gray-12: #1e1f24;
+
+  --gray-a1: #00005503;
+  --gray-a2: #00005506;
+  --gray-a3: #00104010;
+  --gray-a4: #000b3618;
+  --gray-a5: #0009321f;
+  --gray-a6: #00073527;
+  --gray-a7: #00063332;
+  --gray-a8: #00083046;
+  --gray-a9: #00051d74;
+  --gray-a10: #00051b7f;
+  --gray-a11: #0002119d;
+  --gray-a12: #000107e1;
+
+  --gray-contrast: #FFFFFF;
+  --gray-surface: #ffffffcc;
+  --gray-indicator: #8b8d98;
+  --gray-track: #8b8d98;
+
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline-color: var(--PRIMARY_COLOR);
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  accent-color: var(--PRIMARY_COLOR);
+  cursor: default;
+
+  letter-spacing: .5px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*::selection {
+  color: white;
+  background:  var(--PRIMARY_COLOR);
+}
+
+/* ====================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--gray-2);
+}
+
+/* ====================================================== */
+
+div,
+p,
+i,
+em,
+small,
+strong,
+span {
+  color: inherit;
+}
+
+p,
+i,
+em { font-size: .8rem }
+
+small { font-size: .6rem }
+
+
+h1 { font-size: 2rem }
+h2 { font-size: 1.75rem }
+h3 { font-size: 1.5rem }
+h4 { font-size: 1.25rem }
+h5 { font-size: 1.10rem }
+h6 { font-size: 1rem }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Libre Franklin", sans-serif;
+  color: inherit;
+
+}
+
+/* ====================================================== */
+
+
+/* scrollbar todo */
+*::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+*:disabled{
+  opacity: .3;
+  cursor: no-drop;
+}

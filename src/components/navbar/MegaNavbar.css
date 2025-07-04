@@ -1,0 +1,13 @@
+.MegaNavbar{
+  position: sticky;
+  top: .5px;
+  padding: 1rem;
+}
+
+.MegaNavbar nav{
+  /* margin: 16px; */
+  border-radius: calc(var(--RADIUS) * 2);
+
+  background-color: color-mix(in srgb, var(--gray-a1), white 50%);
+  backdrop-filter: blur(50px);
+}
