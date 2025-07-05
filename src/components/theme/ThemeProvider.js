@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react"
+import React, { createContext, useContext, useState, useEffect, useRef } from "react"
 
 // Crea el contexto para el tema
 const ThemeContext = createContext()
@@ -15,8 +15,13 @@ export function ThemeProvider({ children }) {
   // Declara el estado isDark para el tema oscuro
   const [isDark, setIsDark] = useState(false)
   const [isSystemTheme, setIsSystemTheme] = useState(true)
+  const [isInitialized, setIsInitialized] = useState(false)
+  const isSystemThemeRef = useRef(true)
 
-  // Al montar, obtiene el tema guardado o usa la preferencia del sistema
+  useEffect(() => {
+    isSystemThemeRef.current = isSystemTheme
+  }, [isSystemTheme])
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme")
     const savedSystemTheme = localStorage.getItem("isSystemTheme")
@@ -30,9 +35,19 @@ export function ThemeProvider({ children }) {
     } else if (typeof window !== "undefined" && window.matchMedia) {
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
       setIsDark(mediaQuery.matches)
+    }
+
+    setIsInitialized(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isInitialized) return
+
+    if (typeof window !== "undefined" && window.matchMedia) {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
       
       const handleSystemThemeChange = (e) => {
-        if (isSystemTheme) {
+        if (isSystemThemeRef.current) {
           setIsDark(e.matches)
         }
       }
@@ -43,16 +58,17 @@ export function ThemeProvider({ children }) {
         mediaQuery.removeEventListener("change", handleSystemThemeChange)
       }
     }
-  }, [isSystemTheme])
+  }, [isInitialized])
 
-  // Actualiza el atributo data-theme y localStorage cuando isDark cambie
   useEffect(() => {
+    if (!isInitialized) return
+    
     document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light")
     if (!isSystemTheme) {
       localStorage.setItem("theme", isDark ? "dark" : "light")
     }
     localStorage.setItem("isSystemTheme", isSystemTheme.toString())
-  }, [isDark, isSystemTheme])
+  }, [isDark, isSystemTheme, isInitialized])
 
   // Define función para alternar el tema
   const toggleTheme = () => {
