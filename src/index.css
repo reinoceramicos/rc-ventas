@@ -452,8 +452,9 @@ body {
 /* Stats Overview */
 .stats-overview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  max-width: 400px;
 }
 
 .stat-card {
@@ -461,7 +462,7 @@ body {
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -479,9 +480,9 @@ body {
 }
 
 .stat-icon {
-  font-size: 2rem;
-  width: 3rem;
-  height: 3rem;
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -490,14 +491,14 @@ body {
 }
 
 .stat-content h3 {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.125rem;
 }
 
 .stat-content p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin: 0;
 }
@@ -527,8 +528,8 @@ body {
 }
 
 .skeleton-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background: var(--border-light);
   border-radius: 12px;
   animation: pulse 1.5s ease-in-out infinite;
@@ -583,9 +584,8 @@ body {
 .refresh-button {
   display: flex;
   align-items: center;
-
   gap: 0.5rem;
-  padding: 0rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   background: var(--bg-secondary);
   border: 1px solid var(--border-light);
   border-radius: 8px;
@@ -593,7 +593,7 @@ body {
   font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.3s ease;
-
+  height: fit-content;
 }
 
 .refresh-button:hover {
@@ -806,7 +806,7 @@ body {
   }
 
   .brand-name {
-    display: none;
+    font-size: 0.9rem;
   }
 
   .dashboard-main {
@@ -854,6 +854,10 @@ body {
 
   .login-header h1 {
     font-size: 1.5rem;
+  }
+
+  .brand-name {
+    font-size: 0.8rem;
   }
 
   .financial-table th,

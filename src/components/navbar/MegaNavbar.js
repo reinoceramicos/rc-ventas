@@ -7,7 +7,7 @@ import axios from "axios"
 import ReinoCeramico11 from "../brand/ReinoCeramico11"
 
 export default function Navbar() {
-  const { isDark, toggleTheme } = useTheme()
+  const { isDark, toggleTheme, isSystemTheme } = useTheme()
   const [loading, setLoading] = useState(false)
 
   function onLogout(){
@@ -38,7 +38,7 @@ export default function Navbar() {
           <div className="brand-logo">
             <ReinoCeramico11 color={isDark ? '#ffffff' : '#191919'}/>
           </div>
-          <span className="brand-name">Ventas</span>
+          <span className="brand-name">Resumen de Ventas Diario</span>
         </div>
 
         <div className="navbar-actions">
@@ -46,7 +46,16 @@ export default function Navbar() {
             <div className="toggle-container">
               <div className="toggle-switch">
                 <div className="toggle-thumb">
-                  {isDark ? (
+                  {isSystemTheme ? (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 2V6M12 18V22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  ) : isDark ? (
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                       <path
                         d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79Z"

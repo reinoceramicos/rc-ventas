@@ -50,10 +50,9 @@ export default function Home() {
           <StatsOverview data={data} isLoading={isLoading} hideDolar={hideDolar}/>
 
           <div>
-            <div className="flex justify-between">
+            <div className="flex justify-between" style={{ marginBottom: '1.5rem', alignItems: 'center' }}>
               <div>
-                <h2 className="font-bold">Datos Financieros</h2>
-                <p>Resumen de cajas y sucursales en tiempo real</p>
+                <h2 className="font-bold">Ventas por Centro de Costo</h2>
               </div>
 
               <button className="refresh-button" onClick={getData}>
@@ -61,8 +60,6 @@ export default function Home() {
                 Actualizar
               </button>
             </div>
-
-            <br />
 
             {isLoading ? (
               <div className="loading-table">

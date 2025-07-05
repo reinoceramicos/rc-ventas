@@ -2,7 +2,7 @@ export default function StatsOverview({ data, hideDolar, isLoading }) {
   if (isLoading) {
     return (
       <div className="stats-overview">
-        {[...Array(2)].map((_, i) => (
+        {[...Array(1)].map((_, i) => (
           <div key={i} className="stat-card loading">
             <div className="stat-skeleton">
               <div className="skeleton-icon"></div>
@@ -26,7 +26,8 @@ export default function StatsOverview({ data, hideDolar, isLoading }) {
     return new Intl.NumberFormat("es-AR", {
       style: "currency",
       currency: currency,
-      minimumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(amount)
   }
 

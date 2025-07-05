@@ -1,7 +1,8 @@
 import { useState } from "react"
 
 export default function FinancialTable({ data }) {
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" })
+  const [sortConfig, setSortConfig] = useState({ key: "TotalVentaHoy", direction: "desc" })
+  const [showTooltip, setShowTooltip] = useState(false)
 
   const formatCurrency = (amount, currency) => {
     const isNegative = amount < 0
@@ -9,7 +10,8 @@ export default function FinancialTable({ data }) {
     const formatted = new Intl.NumberFormat("es-AR", {
       style: "currency",
       currency: currency,
-      minimumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(absAmount)
 
     return { formatted, isNegative }
@@ -64,7 +66,7 @@ export default function FinancialTable({ data }) {
             <tr>
               <th onClick={() => handleSort("Sucursal")}>
                 <div className="th-content">
-                  <span>Sucursal / Caja</span>
+                  <span>Tienda</span>
                   <div className="sort-icon">{getSortIcon("Sucursal")}</div>
                 </div>
               </th>
@@ -103,15 +105,73 @@ export default function FinancialTable({ data }) {
                         </svg>
                       </div>
                       <span>{row.Sucursal}</span>
+                      {row.Sucursal === "Sin CC" && (
+                        <div className="tooltip-container" style={{ position: 'relative', display: 'inline-block', marginLeft: '8px' }}>
+                          <button
+                            className="info-icon"
+                            onClick={() => setShowTooltip(!showTooltip)}
+                            style={{
+                              background: 'none',
+                              border: 'none',
+                              cursor: 'pointer',
+                              padding: '2px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              color: 'currentColor',
+                              opacity: 0.7
+                            }}
+                          >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M12 17h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </button>
+                          {showTooltip && (
+                            <div
+                              className="tooltip"
+                              style={{
+                                position: 'absolute',
+                                top: '-35px',
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                backgroundColor: '#333',
+                                color: 'white',
+                                padding: '6px 8px',
+                                borderRadius: '4px',
+                                fontSize: '12px',
+                                whiteSpace: 'nowrap',
+                                zIndex: 1000,
+                                boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+                              }}
+                            >
+                              Venta sin centro de costo asignado
+                              <div
+                                style={{
+                                  position: 'absolute',
+                                  top: '100%',
+                                  left: '50%',
+                                  transform: 'translateX(-50%)',
+                                  width: 0,
+                                  height: 0,
+                                  borderLeft: '4px solid transparent',
+                                  borderRight: '4px solid transparent',
+                                  borderTop: '4px solid #333'
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </td>
                   <td className={`amount-cell ${arsData.isNegative ? "negative" : "positive"}`}>
                     <div className="amount-wrapper">
                       <span className="amount">
-                        <span className="currency-symbol">$</span>
+                        <span className="currency-symbol">$ </span>
                         {arsData.isNegative ? "-" : ""}
                         {arsData.formatted.replace("ARS", "").replace("$", "").replace("-", "").trim()}
-                        <span className="currency-code">ARS</span>
+                        <span className="currency-code"> ARS</span>
                       </span>
                     </div>
                   </td>
